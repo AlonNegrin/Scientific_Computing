@@ -64,7 +64,6 @@ while fip <= 0.7:
         print("access permitted after", count, "options , with " + str(format(fip, ".2f")) + "% similarity")
         plt.suptitle("access permitted - " + str(format(fip, ".2f")))
 
-
     plt.title("template face")
     plt.imshow(X, cmap='gray')
     plt.subplot(1, 2, 2)
