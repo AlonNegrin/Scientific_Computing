@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 import matplotlib.pyplot as plt
 import sounddevice as sd
@@ -36,7 +38,7 @@ def getChirp(xnoise, chrip, fs):
         p[i] = innerProduct(chrip, xnoise[i:i + len(chrip)], normal=1)
 
     index = np.argmax(p)
-    sec = index  / fs
+    sec = index / fs
     return index, sec
 
 
@@ -57,11 +59,11 @@ if __name__ == '__main__':
 
     # D
     i, second = getChirp(xnoise, sig, fs)
-    print("the signal is in sample number: ", i," in second: ", second)
+    print("the first signal is in sample number: ", i, " in second: ", second)
 
     # E
-    tt, sig = Chirp(0.7, 1770, -550, fs)
-    xnoise = np.random.randn(35 * fs)
-    xnoise[9 * fs: (int(9.7 * fs))] += sig
-    i, second = getChirp(xnoise, sig, fs)
-    print("the signal is in sample number: ", i, " in second: ", second)
+    xnsig = np.load('xnsig.npy')
+    chirp = np.load('chirp.npy')
+
+    i, second = getChirp(xnsig, chirp, fs)
+    print("the second signal is in sample number: ", i, " in second: ", second)
