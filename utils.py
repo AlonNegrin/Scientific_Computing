@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 
 
 # N = x-axis resolution
@@ -40,3 +39,5 @@ an = "0"
 bn = "(2*(-1)**(n+1))/n"
 f = 'x'
 y = fourierSynthesis(a0, an, bn, f, 50, 10000)
+
+
