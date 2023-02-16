@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-ncols = 50
-nrows = 50
+ncols = 1000
+nrows = 1000
 
 Amat = np.zeros([nrows, ncols])  # init matrix
 tolerance = 10  # iterations
@@ -35,7 +35,7 @@ while diffMat > tolerance:
     diffMat = np.sum(np.abs(Anew - Aold[1:-1, 1:-1]))
     Aold[1:-1, 1:-1] = Anew
     if iter % 100 == 0:
-        plt.imshow(Anew,cmap='flag')
+        plt.imshow(Anew,cmap='hot')
         plt.grid(axis='both')
         plt.colorbar()
         plt.show()
